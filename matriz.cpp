@@ -30,7 +30,7 @@ public:
             }
     }
 
-    void getTamano(){
+    void getTamaño(){
         cout << "\n\nfilas: " << filas << "\nColumnas: " << columnas << "\n" << "___________" << "\n\n";
     }
 
@@ -62,8 +62,12 @@ void funcion_03() {
 	cin>>col;
 	cout<<"\nIngresa el nuevo valor.";
 	cin>>x;
+	if ((0>fil)&&(fil<filas)&&(0>col)&&(col<columnas)) {
 	mat[fil][col]=x;
 	cout<<GREEN<<"\nEl valor fue modificado exitosamente.\n"<<DF;
+	}else {
+		cout<<"Los valores ingresados no son correctos";
+	}
 
 }
 
@@ -168,17 +172,10 @@ void funcion_06() {
 
 }
 void borrarMat(){
-
             for(int i{0}; i < columnas; ++i){
-
                 delete []mat[i];
-            
-            }
-            
+            }           
         delete []mat;
-
-
-
     }
 
 void funcion_08(){
