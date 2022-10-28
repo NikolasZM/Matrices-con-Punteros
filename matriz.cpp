@@ -30,7 +30,7 @@ public:
             }
     }
 
-    void getTamano(){
+    void getTamaño(){
         cout << "\n\nfilas: " << filas << "\nColumnas: " << columnas << "\n" << "___________" << "\n\n";
     }
 
@@ -54,31 +54,31 @@ public:
 		}
 	}
 
-	void funcion_03() {
-		int fil,col,x;
-		cout<<"\nIngresa el valor de las filas.";
-		cin>>fil;
-		cout<<"\nIngresa el valor de las columnas.";
-		cin>>col;
-		cout<<"\nIngresa el nuevo valor.";
-		cin>>x;
-		mat[fil][col]=x;
-		cout<<GREEN<<"\nEl valor fue modificado exitosamente.\n"<<DF;
+void funcion_03() {
+	int fil,col,x;
+	cout<<"\nIngresa el valor de las filas.";
+	cin>>fil;
+	cout<<"\nIngresa el valor de las columnas.";
+	cin>>col;
+	cout<<"\nIngresa el nuevo valor.";
+	cin>>x;
+	mat[fil][col]=x;
+	cout<<GREEN<<"\nEl valor fue modificado exitosamente.\n"<<DF;
 
-	}	
+}
 
-	void funcion_04(){
-		for(int f{0}; f < filas ; ++f){
-			for(int c{0}; c < columnas ; ++c){
+void funcion_04(){
+	for(int f{0}; f < filas ; ++f){
+		for(int c{0}; c < columnas ; ++c){
 
-				if(f == c){
-					mat[f][c] = 0;
-				}
-
+			if(f == c){
+				mat[f][c] = 0;
 			}
+
 		}
-		cout<<GREEN<<"\nLa digonal es igual a 0.\n"<<DF;
 	}
+	cout<<GREEN<<"\nLa digonal es igual a 0.\n"<<DF;
+}
 
 	void funcion_05() {
 		int a,b,c;
@@ -115,37 +115,37 @@ public:
 	        cout<< GREEN <<"El numero "<< DF <<a<<" se repite "<<a1<<" veces.\n";
             cout<< GREEN <<"El numero "<< DF <<b<<" se repite "<<b1<<" veces.\n";
             cout<< GREEN <<"El numero "<< DF <<c<<" se repite "<<c1<<" veces.\n";
-	}
+}
 
-	void funcion_06() {
-	        int a,b;
-	        cout<<"\nIngresa el numero de 2 cifras a buscar.\n>>";
-	        cin>>a;
-	        cout<<"\nIngresa el numero entre 100 y 200 que será su reemplazo.\n>>";
-	        cin>>b;
-	        while(true) {
-				if ((0<=a)&&(a<100)&&(99<b)&&(b<201)) {
-					int aux{0};
-					for (int i{0};i<filas;++i) {
-		        		for (int j{0};j<columnas;++j) {
-	      					if (mat[i][j]==a) {
-		      					mat[i][j]=b;
-	      						++aux;
-	      					}
-	      				}
-	    			}		  
-	    		if (aux==0) {
-	    			cout<<GREEN<<"\nNo se encontro ningun valor de ese tipo."<<DF;
-	    		}else {
-		    		cout<<GREEN<<"\nLos valores fueron cambiados"<<DF;
-		    	}
-				break;
-				}else {
-					cout<<"\nUno o mas valores son incorrectos, recuerda que el primer numero debe estar entre 0 y 99, y el segundo numero entre 100 y 200\n";
-					continue;
-				}
-				}
-			}
+void funcion_06() {
+        int a,b;
+        cout<<"\nIngresa el numero de 2 cifras a buscar.\n>>";
+        cin>>a;
+        cout<<"\nIngresa el numero entre 100 y 200 que será su reemplazo.\n>>";
+        cin>>b;
+        while(true) {
+		if ((0<=a)&&(a<100)&&(99<b)&&(b<201)) {
+		int aux{0};
+		for (int i{0};i<filas;++i) {
+	        for (int j{0};j<columnas;++j) {
+      		if (mat[i][j]==a) {
+	      		mat[i][j]=b;
+      			++aux;
+      		}
+      		}
+    	}  
+    	if (aux==0) {
+    		cout<<GREEN<<"\nNo se encontro ningun valor de ese tipo."<<DF;
+    	}else {
+	    	cout<<GREEN<<"\nLos valores fueron cambiados"<<DF;
+	    }
+		break;
+		}else {
+			cout<<"\nUno o mas valores son incorrectos, recuerda que el primer numero debe estar entre 0 y 99, y el segundo numero entre 100 y 200\n";
+			continue;
+		}
+	}
+	}
 
 	void funcion_07(){
 
@@ -166,29 +166,8 @@ public:
 		cout<<GREEN<<"\nTodos los multiplos de 5 son multiplicados por 10\n"<<DF;
 	}
 
-	}
-
-	void funcion_08(){
-
-		int aux[10][10];
-
-		for(int fila{0}; fila < 10 ; ++fila){
-			for(int columna{0}; columna < 10 ; ++columna){
-				aux[fila][columna] = mat[columna][fila];
-			}
-		}
-
-		for(int fila{0}; fila < 10 ; ++fila){
-			for(int columna{0}; columna < 10 ; ++columna){
-				mat[fila][columna] = aux[fila][columna];
-			}
-		}
-
-
-		cout<<GREEN<<"\nLa matriz fue transpuesta\n"<<DF;
-	}
-
-    void borrarMat(){
+}
+void borrarMat(){
 
             for(int i{0}; i < columnas; ++i){
 
@@ -202,13 +181,56 @@ public:
 
     }
 
+void funcion_08(){
+
+	int **aux;
+    aux = new int*[filas];      
+            for(int i{0}; i < filas; ++i){
+                aux[i] = new int[columnas];
+            }
+
+	for(int fila{0}; fila < filas ; ++fila){
+		for(int columna{0}; columna < columnas ; ++columna){
+			aux[fila][columna] = mat[fila][columna];
+		}
+	}
+
+	for(int i{0}; i < columnas; ++i){
+
+                delete []mat[i];
+            
+            }
+            
+        delete []mat;
+
+
+	mat = new int*[columnas];      
+            for(int i{0}; i < columnas; ++i){
+                mat[i] = new int[filas];
+            }
+
+	for(int fila{0}; fila < filas ; ++fila){
+		for(int columna{0}; columna < columnas ; ++columna){
+			mat[columna][fila] = aux[fila][columna];
+		}
+	}
+	int h;
+	h=filas;
+	filas = columnas;
+	columnas = h;
+
+	cout<<GREEN<<"\nLa matriz fue transpuesta\n"<<DF;
+	}
+
+    
+
 };
 
 int main() {
 		
 	std::system("cls");
 	int opt{0};
-	matriz Matriz1(10,10);
+	matriz Matriz1(10,5);
 	while (true) {
 		switch(opt) {
 			case 0:
