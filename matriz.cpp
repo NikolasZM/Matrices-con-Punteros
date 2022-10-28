@@ -47,7 +47,7 @@ public:
 	void funcion_02() {		//funcion_02
 		for (int i{0};i<filas;++i) {
 			cout<<"| ";
-			for (int j{0};j<colum;++j) {	
+			for (int j{0};j<columnas;++j) {	
 				cout<<setw(3)<<mat[i][j]<<" ";
 			}
 			cout<<"|\n";
@@ -68,8 +68,8 @@ void funcion_03() {
 }
 
 void funcion_04(){
-	for(int f{0}; fila < filas ; ++fila){
-		for(int c{0}; columna < columnas ; ++columna){
+	for(int f{0}; f < filas ; ++f){
+		for(int c{0}; c < columnas ; ++c){
 
 			if(f == c){
 				mat[f][c] = 0;
@@ -80,10 +80,12 @@ void funcion_04(){
 	cout<<GREEN<<"\nLa digonal es igual a 0.\n"<<DF;
 }
 
-	funcion_05() {
-		while (true) {
+	void funcion_05() {
 		int a,b,c;
         int a1{0},b1{0},c1{0};
+
+		while (true) {
+		
             cout<<"\nIngresa el primer numero a buscar\n>>";
             cin>>a;
             cout<<"\nIngresa el segundo numero a buscar\n>>";
@@ -107,7 +109,7 @@ void funcion_04(){
     break;
 	}else {
 		cout<<"\nUn valor ingresado no es valido, recuerda que los numeros deben estar entre 0 y 99\n";
-		continue	
+		continue	;
 	}
 	}
 	        cout<< GREEN <<"El numero "<< DF <<a<<" se repite "<<a1<<" veces.\n";
@@ -115,7 +117,7 @@ void funcion_04(){
             cout<< GREEN <<"El numero "<< DF <<c<<" se repite "<<c1<<" veces.\n";
 }
 
-void funcion_06(int a,int b,int mat[10][10]) {
+void funcion_06() {
         int a,b;
         cout<<"\nIngresa el numero de 2 cifras a buscar.\n>>";
         cin>>a;
