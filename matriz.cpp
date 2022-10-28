@@ -30,7 +30,7 @@ public:
             }
     }
 
-    void getTamaño(){
+    void getTamano(){
         cout << "\n\nfilas: " << filas << "\nColumnas: " << columnas << "\n" << "___________" << "\n\n";
     }
 
